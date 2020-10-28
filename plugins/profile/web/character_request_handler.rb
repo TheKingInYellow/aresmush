@@ -85,6 +85,13 @@ module AresMUSH
         else
           fate = nil
         end
+
+        if Manage.is_extra_installed?("ironsworn")
+          ironsworn = Ironsworn.get_web_sheet(char, enactor)
+          Global.logger.debug "#{ironsworn}"
+        else
+          ironsworn = nil
+        end
         
         if (enactor)
           if (enactor.is_admin?)
@@ -127,6 +134,7 @@ module AresMUSH
           traits: traits,
           fate: fate,
           files: files,
+          ironsworn: ironsworn,
           last_profile_version: char.last_profile_version ? char.last_profile_version.id : nil,
           achievements: Achievements.is_enabled? ? Achievements.build_achievements(char) : nil,
           

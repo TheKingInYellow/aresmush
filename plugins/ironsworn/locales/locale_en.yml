@@ -1,0 +1,28 @@
+---
+en:
+  ironsworn:
+    approved: "Approved"
+    unapproved: "Not yet approved"
+    rostered: "On the roster"
+    npc: "NPC"
+    idled_out: "Idled out"
+
+    stats_title: "Stats"
+    status_title: "Status"
+    assets_title: "Assets"
+
+    status_set: "Status set."
+    invalid_status_name: "That is not a valid status."
+    invalid_status_rating: "That is not a valid value for a status."
+
+    stat_set: "Stat set."
+    invalid_stat_name: "That is not a valid stat."
+    invalid_stat_rating: "That is not a valid value for a stat."
+
+    asset_set: "Asset set."
+    invalid_asset_name: "That is not a valid asset."
+    invalid_asset_rating: "That is not a valid value for an asset."
+    
+    invalid_roll: "That is not a valid roll."
+    roll_results: "%{name} rolls %{roll_str} and gets a %{result}. (1d6+%{mods} [%{roll}] vs 2d10 [%{action1},%{action2}])"
+    progress_roll_results: "%{name} rolls progress at %{roll_str} and gets a %{result}. ([%{roll}] vs 2d10 [%{action1},%{action2}])"

@@ -3,7 +3,11 @@ module AresMUSH
     class DiscordWebhookHandler
       def handle(request)
         token = request.args['token'] || ""
-        name = request.args['nickname'] || ( request.args['user'] || "" )
+        name = request.args['nickname'] || ""
+        if (name.empty?)
+          name = request.args['user'] || ""
+        end
+
         message = request.args['message'] || ""
         discord_channel_name = request.args['channel'] || ""
         
@@ -26,6 +30,9 @@ module AresMUSH
         end
         
         prefix = Global.read_config('channels', 'discord_prefix') || "[D]"
+
+        Global.logger.info "Discord message request #{request.args}"
+
         enactor = Character.named(name)
         Channels.emit_to_channel(channel, "#{prefix} #{name}: #{message}", title = nil)
       end
