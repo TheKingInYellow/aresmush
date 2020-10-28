@@ -10,6 +10,7 @@ en:
     stats_title: "Stats"
     status_title: "Status"
     assets_title: "Assets"
+    legacies_title: "Legacies"
 
     status_set: "Status set."
     invalid_status_name: "That is not a valid status."

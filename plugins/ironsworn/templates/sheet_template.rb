@@ -14,10 +14,6 @@ module AresMUSH
         format_three_per_line @char.ironsworn_stats
       end
 
-      def assets
-        format_assets @char.ironsworn_assets
-      end
-  
       def approval_status
         if (char.on_roster?)
           status = "%xb%xh#{t('ironsworn.rostered')}%xn"
@@ -46,8 +42,8 @@ module AresMUSH
         "\n#{m_lbl}#{m_val}#{h_lbl}#{h_val}#{s_lbl}#{s_val}#{sp_lbl}#{sp_val}"
       end
 
-      def format_assets(list)
-        list.to_a.sort_by { |a| a.name }
+      def assets
+        @char.ironsworn_asset.to_a.sort_by { |a| a.name }
           .each_with_index
             .map do |a, i| 
               asset = Ironsworn.get_asset(a.name)
@@ -61,6 +57,9 @@ module AresMUSH
 	      prereq = asset['prereq'] ? "\n%xh#{asset['prereq']}%xn" : ""
               @markdown.to_mush "\n%xh#{a.name}%xn (#{asset['category']}#{health}) %xh#{a.note}%xn#{prereq}#{step1}#{step2}#{step3}"
         end
+      end
+
+      def legacies
       end
 
       def format_three_per_line(list)

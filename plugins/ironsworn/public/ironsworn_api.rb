@@ -34,7 +34,10 @@ module AresMUSH
         momentum: char.ironsworn_momentum,
         health: char.ironsworn_health,
         spirit: char.ironsworn_spirit,
-        supply: Game.master.ironsworn_supply
+        supply: Game.master.ironsworn_supply,
+        quests: char.ironsworn_legacy_quests,
+        bonds: char.ironsworn_legacy_bonds,
+        discoveries: char.ironsworn.legacy_discoveries
       }
     end
     
