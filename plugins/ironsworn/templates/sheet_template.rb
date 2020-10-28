@@ -43,7 +43,7 @@ module AresMUSH
       end
 
       def assets
-        @char.ironsworn_asset.to_a.sort_by { |a| a.name }
+        @char.ironsworn_assets.to_a.sort_by { |a| a.name }
           .each_with_index
             .map do |a, i| 
               asset = Ironsworn.get_asset(a.name)
