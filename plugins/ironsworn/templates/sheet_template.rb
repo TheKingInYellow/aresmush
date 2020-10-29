@@ -64,15 +64,15 @@ module AresMUSH
         ticks = ticks % 4;
 
         chars = (1..max+1).map { |i| return i > progress ? "." : (i < progress ? "@" : String(ticks))}
-        "[#{chars}]"
+        "\[#{chars}\]"
       end
 
       def legacies
-        b_lbl = left("\n%xhBonds%xn:", 11)
+        b_lbl = left("\n%xhBonds%xn:", 13)
         b_prg = self.progress(@char.ironsworn_legacy_bonds, 22)
-        q_lbl = left("\n%xhQuests%xn:", 11)
+        q_lbl = left("\n%xhQuests%xn:", 13)
         q_prg = self.progress(@char.ironsworn_legacy_quests, 22)
-        d_lbl = left("\n%xhDiscoveries%xn:", 11)        
+        d_lbl = left("\n%xhDiscoveries%xn:", 13)
         d_prg = self.progress(@char.ironsworn_legacy_discoveries, 22)
         "#{b_lbl}#{b_prg}#{q_lbl}#{q_prg}#{d_lbl}#{d_prg}"
       end
@@ -82,9 +82,9 @@ module AresMUSH
           .each_with_index
             .map do |a, i| 
               linebreak = i % 3 == 0 ? "\n" : ""
-              title = left("#{a.name}:", 13)
+              title = left("%xh#{a.name}%xn:", 13)
               rating = left(a.rating, 13)
-              "#{linebreak}%xh#{title}%xn#{rating}"
+              "#{linebreak}#{title}#{rating}"
         end
       end
     end
