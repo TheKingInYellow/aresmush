@@ -63,7 +63,7 @@ module AresMUSH
         progress = ticks / 4
         ticks = ticks % 4;
 
-        chars = [1..max].map { |i| i > progress ? "." : (i < progress ? "@" : String(ticks))}
+        chars = (1..max+1).map { |i| return i > progress ? "." : (i < progress ? "@" : String(ticks))}
         "[#{chars}]"
       end
 
