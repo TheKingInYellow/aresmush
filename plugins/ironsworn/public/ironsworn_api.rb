@@ -37,7 +37,7 @@ module AresMUSH
         supply: Game.master.ironsworn_supply,
         quests: char.ironsworn_legacy_quests,
         bonds: char.ironsworn_legacy_bonds,
-        discoveries: char.ironsworn.legacy_discoveries
+        discoveries: char.ironsworn_legacy_discoveries
       }
     end
     
