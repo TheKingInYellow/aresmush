@@ -59,7 +59,22 @@ module AresMUSH
         end
       end
 
+      def progress(ticks, max)
+        progress = ticks / 4
+        ticks = ticks % 4;
+
+        chars = [1..max].map { |i| i > progress ? "." : (i < progress ? "@" : String(ticks))}
+        "[#{chars}]"
+      end
+
       def legacies
+        b_lbl = left("\n%xhBonds%xn:", 11)
+        b_prg = self.progress(@char.ironsworn_legacy_bonds, 22)
+        q_lbl = left("\n%xhQuests%xn:", 11)
+        q_prg = self.progress(@char.ironsworn_legacy_quests, 22)
+        d_lbl = left("\n%xhDiscoveries%xn:", 11)        
+        d_prg = self.progress(@char.ironsworn_legacy_discoveries, 22)
+        "#{b_lbl}#{b_prg}#{q_lbl}#{q_prg}#{d_lbl}#{d_prg}"
       end
 
       def format_three_per_line(list)
