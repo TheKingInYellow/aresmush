@@ -53,9 +53,11 @@ module AresMUSH
     attribute :type
     attribute :ticks, :type => DataType::Integer
     attribute :rank, :type => DataType::Integer
+    attribute :completed, :tye => DataType::Boolean
+    attribute :note
 
     reference :character, "AresMUSH::Character"
-    index :characer
+    index :name
   end
 
 end

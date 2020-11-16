@@ -17,6 +17,17 @@ module AresMUSH
         return RollCmd
       when "sheet"
         return SheetCmd
+      when "progress"
+        case cmd.switch
+        when "extra", nil
+          return ProgressMarkCmd
+        when "add"
+          return ProgressAddCmd
+        when "delete"
+          return ProgressDeleteCmd
+        when "complete"
+          return ProgressCompleteCmd
+        end
       when "status"
         return StatusSetCmd
       when "stat"

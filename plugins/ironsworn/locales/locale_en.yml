@@ -11,6 +11,7 @@ en:
     status_title: "Status"
     assets_title: "Assets"
     legacies_title: "Legacies"
+    progress_title: "Progress"
 
     status_set: "Status set."
     invalid_status_name: "That is not a valid status."
@@ -27,3 +28,15 @@ en:
     invalid_roll: "That is not a valid roll."
     roll_results: "%{name} rolls %{roll_str} and gets a %{result}. (1d6+%{mods} [%{roll}] vs 2d10 [%{action1},%{action2}])"
     progress_roll_results: "%{name} rolls progress at %{roll_str} and gets a %{result}. ([%{roll}] vs 2d10 [%{action1},%{action2}])"
+
+    invalid_char_name: "That is not a valid character name."
+    invalid_progress_name: "That character already has a progress stat with that name."
+    invalid_progress_rank: "Vald progress ranks are troublesome, dangerous, formidable, extreme, and epic."
+    invalid_progress_type: "Valid progress types are background, vow, foe, expedition, and bond."
+    progress_added: "Progress set."
+    progress_deleted: "Progress deleted."
+    progress_marked: "Progress marked."
+    progress_marked_extra: "Extra progress marked."
+    progress_completed: "Progress completed."
+
+    

@@ -117,7 +117,7 @@ module AresMUSH
     end
 
     def self.get_stat(char, stat)
-      if stat.is_integer?
+      if stat.is_a? Integer
         return stat.to_i
       end
 
@@ -181,7 +181,7 @@ module AresMUSH
        rating = Ironsworn.get_stat(enactor, ability)
        return nil if !rating
        
-       if (ability.is_integer?)
+       if (ability.is_a? Integer)
          progress = true
          die = 0
        else
@@ -209,5 +209,28 @@ module AresMUSH
       message = Ironsworn.determine_roll_result(enactor, roll_str)
       return { message: message } 
     end
+   
+    def self.find_progress(char, name)
+      return char.ironsworn_progress.select { |a| a.name.downcase == name.downcase }.first    
+    end
+
+    def self.convert_progress_rank(rank)
+      ranks = ["Troublesome", "Dangerous", "Formidable", "Extreme", "Epic"]
+      if (rank.is_a? Integer) 
+        if (rank >= 0 && rank <= 4)
+          return ranks[rank]
+        else
+          return nil
+        end
+      else
+        return ranks.index(rank)
+      end
+    end
+
+    def self.get_progress_ticks_per_rank(rank)
+      rank_ticks = [12, 8, 4, 2, 1];
+      rank_ticks[rank]
+    end
+
   end
 end

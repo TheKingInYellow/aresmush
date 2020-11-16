@@ -37,7 +37,15 @@ module AresMUSH
         supply: Game.master.ironsworn_supply,
         quests: char.ironsworn_legacy_quests,
         bonds: char.ironsworn_legacy_bonds,
-        discoveries: char.ironsworn_legacy_discoveries
+        discoveries: char.ironsworn_legacy_discoveries,
+        progress: (char.ironsworn_progress || {}).sort.map { |p| {
+          name: p.name,
+          rank: Ironsworn.convert_progress_rank(p.rank),
+          ticks: p.ticks,
+          type: p.type,
+          note: p.note,
+          completed: p.completed
+        }}
       }
     end
     
