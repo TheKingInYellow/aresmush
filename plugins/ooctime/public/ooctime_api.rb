@@ -51,8 +51,12 @@ module AresMUSH
       date_format = Global.read_config("datetime", "short_date_format")
       if (date_format =~ /-/)
         return '-'
-      else
+      elsif (date_format =~ /\//)
         return '/'
+      elsif (date_format =~ / /)
+        return ' '
+      else
+        return nil
       end
     end
     
@@ -76,6 +80,35 @@ module AresMUSH
       
       char.update(ooctime_timezone: zone)
       return nil
+    end
+    
+    def self.utc_offset(char)
+      setting = char.ooctime_timezone
+      tz = Timezone[setting || "America/New_York"]
+      tz.utc_offset/3600
+    end
+    
+    def self.utc_offset_display(char, include_suffix = false)
+      offset = OOCTime.utc_offset(char)
+
+      est_offset = Timezone["America/New_York"].utc_offset/3600
+      suffix = ""
+      if (include_suffix)
+        if (offset == est_offset)
+          suffix  = " (Eastern US)"
+        elsif (offset == 0)
+          suffix = " (GMT)"
+        end
+      end
+      
+      offset_str = "%+0.2d" % offset
+      if (offset < 0)
+        name = "UTC#{offset_str}#{suffix}"
+      else
+        name = "UTC#{offset_str}#{suffix}"
+      end
+      
+      name
     end
   end
 end

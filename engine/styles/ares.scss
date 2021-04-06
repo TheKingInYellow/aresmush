@@ -64,9 +64,14 @@ BASIC CONTAINERS
 }
 
 .thumbnail-gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.thumbnail-gallery-item {
     height: 150px; 
-    width: 150px;
-    float:left;
+    width: 150px;    
 }
 
 .code-editor {
@@ -870,6 +875,12 @@ SCENES SCREEN
     padding: 0px 10px 10px 10px;
 }
 
+.scene-command {
+  margin-left: 25px;
+  color: $faded-text-color;
+  font-style: italic;
+}
+
 .scene-log {
     border: 1px solid $border-color;
     margin: 2px;
@@ -1119,6 +1130,8 @@ SCENES SCREEN
 .content-warning-label {
   margin: 0px 5px;
 }
+
+
 @media (max-width: 767px) {
     .scene-controls-left {
         display: flex;
@@ -1200,6 +1213,11 @@ CHARACTERS SCREEN
     background-size: cover;
     background-repeat: no-repeat;
     background-image:url('/game/uploads/theme_images/box-bg.png');
+}
+
+.achievement-levels {
+  padding-top: 5px;
+  color: #bbb;
 }
 
 table.char-ability-list { 
@@ -1617,6 +1635,10 @@ ul.reference-help-list > li:not(:last-child)::after {
 
 .idle-status {
   white-space: normal;
+}
+
+.server-migration {
+  padding-right: 10px;
 }
 /*.char-scene-list li:before { content: "\2666  "; }*/
 

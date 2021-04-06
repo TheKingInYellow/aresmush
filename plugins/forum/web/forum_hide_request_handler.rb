@@ -7,16 +7,14 @@ module AresMUSH
         hide = (request.args[:hide] || "").to_bool
         enactor = request.enactor
         
-        category = BbsBoard[category_id.to_i]
-        if (!category)
-          return { error: t('webportal.not_found') }
-        end
-        
         error = Website.check_login(request)
         return error if error
 
-        if (!Forum.can_read_category?(enactor, category))
-          return { error: t('forum.cannot_access_category') }
+        request.log_request
+        
+        category = BbsBoard[category_id.to_i]
+        if (!category)
+          return { error: t('webportal.not_found') }
         end
 
         prefs = Forum.get_forum_prefs(enactor, category)

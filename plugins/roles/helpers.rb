@@ -13,8 +13,7 @@ module AresMUSH
     end
     
     def self.is_restricted?(name)
-      role = Role.find_one_by_name(name)
-      restricted_roles.include?(role)
+      restricted_roles.map {|r| r.upcase }.include?(name.upcase)
     end
     
     def self.chars_with_role(name)
@@ -52,17 +51,6 @@ module AresMUSH
         end
       end
       permissions
-    end
-    
-    def self.save_web_roles(char, role_names)
-      new_roles = []
-      role_names.each do |r|
-        role = Role.find_one_by_name(r)
-        if (role)
-          new_roles << role
-        end
-      end
-      char.roles.replace new_roles
     end
   end
 end
