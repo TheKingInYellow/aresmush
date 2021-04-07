@@ -108,7 +108,7 @@ module AresMUSH
         end
         
         if Manage.is_extra_installed?("ironsworn")
-          add_to_profile profile_data, Ironsworn.get_web_sheet(char, enactor)
+          profile_data['ironsworn'] = Ironsworn.get_web_sheet(char, enactor)
         end
 
         profile_data
