@@ -96,22 +96,19 @@ module AresMUSH
         end
         
         if Manage.is_extra_installed?("traits")
-          profile_data['traits'] = Traits.get_traits_for_web_viewing(char, enactor)
+          add_to_profile profile_data, Traits.get_traits_for_web_viewing(char, enactor)
         end
         
         if Manage.is_extra_installed?("rpg")
-          profile_data['rpg'] = Rpg.get_sheet_for_web_viewing(char, enactor)
+          add_to_profile profile_data, Rpg.get_sheet_for_web_viewing(char, enactor)
         end
         
         if Manage.is_extra_installed?("fate")
-          profile_data['fate'] = Fate.get_web_sheet(char, enactor)
+          add_to_profile profile_data, Fate.get_web_sheet(char, enactor)
         end
         
         if Manage.is_extra_installed?("ironsworn")
-          profile_data['ironsworn'] = Ironsworn.get_web_sheet(char, enactor)
-          Global.logger.debug "#{ironsworn}"
-        else
-          ironsworn = nil
+          add_to_profile profile_data, Ironsworn.get_web_sheet(char, enactor)
         end
 
         profile_data
