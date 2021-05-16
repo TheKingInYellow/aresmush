@@ -9,7 +9,7 @@ module AresMUSH
       end
       
       def handle
-        char = Character.named('Toran')
+        char = Character.named('Davu')
         char.update(ironsworn_legacy_bonds: 0)
         client.emit_success "Done!"
       end

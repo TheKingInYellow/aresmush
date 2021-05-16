@@ -33,10 +33,10 @@ module AresMUSH
       end
       
       def check_valid_progress_name
-        return t('ironsworn.invalid_progress_name') if Ironsworn.find_progress(self.char, self.progress_name)
-        return t('ironsworn.invalid_progress_name') if Ironsworn.is_valid_asset_name?(self.progress_name)
-        return t('ironsworn.invalid_progress_name') if Ironsworn.is_valid_stat_name?(self.progress_name)
-        return t('ironsworn.invalid_progress_name') if ["Bonds", "Quests", "Discoveries"].include?(self.progress_name)
+        return t('ironsworn.invalid_progress_name1') if Ironsworn.find_progress(self.char, self.progress_name)
+        return t('ironsworn.invalid_progress_name2') if Ironsworn.is_valid_asset_name?(self.progress_name)
+        return t('ironsworn.invalid_progress_name3') if Ironsworn.is_valid_stat_name?(self.progress_name)
+        return t('ironsworn.invalid_progress_name4') if ["Bonds", "Quests", "Discoveries"].include?(self.progress_name)
         return nil
       end
 
