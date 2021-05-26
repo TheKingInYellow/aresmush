@@ -30,7 +30,7 @@ module AresMUSH
       end
 
       def check_valid_progress_name
-        return t('ironsworn.invalid_progress_name') if !self.progress && !["Bonds", "Quests", "Discoveries"].include?(self.progress_name)
+        return t('ironsworn.invalid_progress_mark') if !self.progress && !["Bonds", "Quests", "Discoveries"].include?(self.progress_name)
         return nil
       end
 

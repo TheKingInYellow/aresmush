@@ -31,6 +31,7 @@ en:
 
     invalid_char_name: "That is not a valid character name."
     invalid_progress_name: "That character already has a progress stat with that name."
+    invalid_progress_mark: "That character does not have that progress stat."
     invalid_progress_rank: "Vald progress ranks are troublesome, dangerous, formidable, extreme, and epic."
     invalid_progress_type: "Valid progress types are background, vow, foe, expedition, and bond."
     progress_added: "Progress set."

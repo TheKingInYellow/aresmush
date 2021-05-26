@@ -10,7 +10,10 @@ module AresMUSH
       
       def handle
         char = Character.named('Davu')
-        char.update(ironsworn_legacy_bonds: 0)
+        progress_name = 'TheAce'
+        client.emit Ironsworn.find_progress(char, progress_name) != nil
+        client.emit Ironsworn.is_valid_asset_name?(progress_name)
+        client.emit Ironsworn.is_valid_stat_name?(progress_name)
         client.emit_success "Done!"
       end
 
