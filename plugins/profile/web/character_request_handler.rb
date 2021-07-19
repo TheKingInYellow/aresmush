@@ -59,6 +59,8 @@ module AresMUSH
           siteinfo = nil
         end
           
+        prefs = Manage.is_extra_installed?("prefs") ? Website.format_markdown_for_html(char.rp_prefs) : nil
+          
         profile_data = {
           id: char.id,
           name: char.name,
@@ -68,7 +70,7 @@ module AresMUSH
           profile_image: Website.get_file_info(char.profile_image),
           handle: char.handle ? char.handle.name : nil,
           status_message: Profile.get_profile_status_message(char),
-          tags: char.profile_tags,
+          tags: char.content_tags,
           can_manage: can_manage,
           profile: profile,
           relationships: relationships,
@@ -79,6 +81,7 @@ module AresMUSH
           last_profile_version: char.last_profile_version ? char.last_profile_version.id : nil,
           show_notes: char == enactor || Utils.can_manage_notes?(enactor),
           siteinfo: siteinfo,
+          rp_prefs: prefs,
           custom: CustomCharFields.get_fields_for_viewing(char, enactor),
         }
         
